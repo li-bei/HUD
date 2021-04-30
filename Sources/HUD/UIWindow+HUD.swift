@@ -8,12 +8,18 @@ public enum HUDHidingStrategy {
 // MARK: -
 
 extension UIWindow {
-    public func show(_ hud: HUD, animated: Bool = true, hidingStrategy: HUDHidingStrategy = .afterTimeInterval(2)) {
+    public func show(
+        _ hud: HUD,
+        animated: Bool = true,
+        hidingStrategy: HUDHidingStrategy = .afterTimeInterval(2),
+        blocksUserInteraction: Bool = false
+    ) {
         guard hud.view == nil else {
             return
         }
 
         let hudView = HUDView(hud: hud)
+        hudView.isUserInteractionEnabled = blocksUserInteraction
         addSubview(hudView)
         NSLayoutConstraint.activate([
             hudView.leadingAnchor.constraint(equalTo: leadingAnchor),

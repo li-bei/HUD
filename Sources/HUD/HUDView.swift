@@ -44,7 +44,6 @@ final class HUDView: View {
     public init(hud: HUD) {
         assert(hud.view == nil)
         super.init(frame: .zero)
-        isUserInteractionEnabled = false
         translatesAutoresizingMaskIntoConstraints = false
         setUpSubviews()
         setUpConstraints()
