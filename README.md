@@ -4,6 +4,10 @@ A modern HUD inspired by Apple Music and Apple Podcasts.
 
 ![](Screenshots/light.png) ![](Screenshots/dark.png)
 
+## Requirements
+
+- iOS 13+
+
 ## How to Use
 
 ```swift
