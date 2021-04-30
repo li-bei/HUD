@@ -2,7 +2,11 @@
 
 A modern HUD inspired by Apple Music and Apple Podcasts.
 
-![](Screenshots/light.png) ![](Screenshots/dark.png)
+Appearance | HUD                            | Activity Indicator HUD
+---------- | ------------------------------ | ----------------------
+Light      | ![](Screenshots/hud-light.gif) | ![](Screenshots/activity-indicator-hud-light.gif)
+Dark       | ![](Screenshots/hud-dark.gif)  | ![](Screenshots/activity-indicator-hud-dark.gif)
+
 
 ## Requirements
 
