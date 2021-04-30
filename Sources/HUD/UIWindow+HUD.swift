@@ -1,7 +1,14 @@
 import UIKit
 
+public enum HUDHidingStrategy {
+    case afterTimeInterval(TimeInterval)
+    case never
+}
+
+// MARK: -
+
 extension UIWindow {
-    public func show(_ hud: HUD, animated: Bool = true, hideAfter timeInterval: TimeInterval = 2) {
+    public func show(_ hud: HUD, animated: Bool = true, hidingStrategy: HUDHidingStrategy = .afterTimeInterval(2)) {
         guard hud.view == nil else {
             return
         }
@@ -24,10 +31,13 @@ extension UIWindow {
             }
         }
 
-        if timeInterval > 0 {
+        switch hidingStrategy {
+        case .afterTimeInterval(let timeInterval):
             DispatchQueue.main.asyncAfter(deadline: .now() + timeInterval) { [weak self] in
                 self?.hide(hud, animated: animated)
             }
+        case .never:
+            break
         }
     }
 
