@@ -13,7 +13,7 @@ class View: UIView {
 
 // MARK: -
 
-final class HUDView: View {
+class _HUDView: View {
     private lazy var blurEffect = UIBlurEffect(style: .systemThinMaterial)
 
     private lazy var blurEffectView: UIVisualEffectView = {
@@ -32,7 +32,7 @@ final class HUDView: View {
         return visualEffectView
     }()
 
-    private let stackView: UIStackView = {
+    let stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.alignment = .center
         stackView.axis = .vertical
@@ -41,7 +41,7 @@ final class HUDView: View {
         return stackView
     }()
 
-    public init(hud: HUD) {
+    public init(hud: HUDProtocol) {
         assert(hud.view == nil)
         super.init(frame: .zero)
         translatesAutoresizingMaskIntoConstraints = false
@@ -83,10 +83,7 @@ final class HUDView: View {
         ])
     }
 
-    private func setUpStackViewArrangedSubviews(for hud: HUD) {
-        if let image = hud.image {
-            stackView.addArrangedSubview(ImageView(image: image))
-        }
+    func setUpStackViewArrangedSubviews(for hud: HUDProtocol) {
         if let title = hud.title {
             let titlelabel = UILabel()
             titlelabel.font = UIFont.systemFont(ofSize: 22, weight: .semibold)
@@ -105,31 +102,5 @@ final class HUDView: View {
             messagelabel.textColor = .secondaryLabel
             stackView.addArrangedSubview(messagelabel)
         }
-    }
-}
-
-// MARK: -
-
-private final class ImageView: View {
-    private let imageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.preferredSymbolConfiguration = UIImage.SymbolConfiguration(pointSize: 108)
-        return imageView
-    }()
-
-    init(image: UIImage) {
-        super.init(frame: .zero)
-        imageView.image = image
-        addSubview(imageView)
-        let size = imageView.sizeThatFits(UIView.layoutFittingExpandedSize)
-        NSLayoutConstraint.activate([
-            widthAnchor.constraint(equalToConstant: size.width),
-            heightAnchor.constraint(equalToConstant: size.height),
-        ])
-    }
-
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        imageView.frame = bounds
     }
 }

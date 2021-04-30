@@ -2,10 +2,12 @@ import UIKit
 
 public final class HUD {
     public let image: UIImage?
+
     public let title: String?
+
     public let message: String?
 
-    weak var view: HUDView?
+    weak var view: UIView?
 
     public init(image: UIImage? = nil, title: String? = nil, message: String? = nil) {
         self.image = image
