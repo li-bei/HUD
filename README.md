@@ -1,5 +1,7 @@
 # HUD
 
+A modern HUD inspired by Apple Music and Apple Podcasts.
+
 ![](Screenshots/light.png) ![](Screenshots/dark.png)
 
 ## How to Use
