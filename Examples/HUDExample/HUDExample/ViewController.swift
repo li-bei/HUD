@@ -30,7 +30,7 @@ final class ViewController: UIViewController {
             image: UIImage(systemName: "heart"),
             title: "Loved",
             message: "This is a beautiful HUD.",
-            blurEffectStyle: style.randomElement()
+            blurEffectStyle: style.randomElement() ?? .systemThinMaterial
         )
         view.window?.show(hud)
     }

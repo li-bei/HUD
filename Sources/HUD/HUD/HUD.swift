@@ -7,11 +7,16 @@ public final class HUD {
 
     public let message: String?
 
+    public let blurEffectStyle: UIBlurEffect.Style
+
     weak var view: UIView?
 
-    public var blurEffectStyle: UIBlurEffect.Style?
-
-    public init(image: UIImage? = nil, title: String? = nil, message: String? = nil, blurEffectStyle: UIBlurEffect.Style? = nil) {
+    public init(
+        image: UIImage? = nil,
+        title: String? = nil,
+        message: String? = nil,
+        blurEffectStyle: UIBlurEffect.Style = .systemThinMaterial
+    ) {
         self.image = image
         self.title = title
         self.message = message
