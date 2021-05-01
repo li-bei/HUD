@@ -7,8 +7,11 @@ public final class ActivityIndicatorHUD {
 
     weak var view: UIView?
 
-    public init(title: String? = nil, message: String? = nil) {
+    public var style: UIBlurEffect.Style?
+
+    public init(title: String? = nil, message: String? = nil, style: UIBlurEffect.Style? = nil) {
         self.title = title
         self.message = message
+        self.style = style
     }
 }

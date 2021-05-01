@@ -25,10 +25,12 @@ final class ViewController: UIViewController {
 
     @objc
     private func showHUD() {
+        let style: [UIBlurEffect.Style] = [.dark, .systemChromeMaterial, .systemMaterial, .systemMaterialLight, .systemMaterialDark]
         let hud = HUD(
             image: UIImage(systemName: "heart"),
             title: "Loved",
-            message: "This is a beautiful HUD."
+            message: "This is a beautiful HUD.",
+            style: style.randomElement()
         )
         view.window?.show(hud)
     }
