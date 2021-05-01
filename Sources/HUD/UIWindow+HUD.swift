@@ -11,28 +11,24 @@ extension UIWindow {
     public func show(
         _ hud: HUD,
         animated: Bool = true,
-        hidingStrategy: HUDHidingStrategy = .afterTimeInterval(2),
-        blocksUserInteraction: Bool = false
+        hidingStrategy: HUDHidingStrategy = .afterTimeInterval(2)
     ) {
         show(
             hud as HUDProtocol,
             animated: animated,
-            hidingStrategy: hidingStrategy,
-            blocksUserInteraction: blocksUserInteraction
+            hidingStrategy: hidingStrategy
         )
     }
 
     public func show(
         _ hud: ActivityIndicatorHUD,
         animated: Bool = true,
-        hidingStrategy: HUDHidingStrategy = .never,
-        blocksUserInteraction: Bool = true
+        hidingStrategy: HUDHidingStrategy = .never
     ) {
         show(
             hud as HUDProtocol,
             animated: animated,
-            hidingStrategy: hidingStrategy,
-            blocksUserInteraction: blocksUserInteraction
+            hidingStrategy: hidingStrategy
         )
     }
 
@@ -51,15 +47,13 @@ extension UIWindow {
     private func show(
         _ hud: HUDProtocol,
         animated: Bool,
-        hidingStrategy: HUDHidingStrategy,
-        blocksUserInteraction: Bool
+        hidingStrategy: HUDHidingStrategy
     ) {
         guard hud.view == nil else {
             return
         }
 
         let hudView = hud.makeHUDView()
-        hudView.isUserInteractionEnabled = blocksUserInteraction
         addSubview(hudView)
         NSLayoutConstraint.activate([
             hudView.leadingAnchor.constraint(equalTo: leadingAnchor),

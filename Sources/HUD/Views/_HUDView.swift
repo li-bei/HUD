@@ -43,14 +43,18 @@ class _HUDView: View {
 
     public init(hud: HUDProtocol) {
         assert(hud.view == nil)
+
         blurEffect = UIBlurEffect(style: hud.blurEffectStyle)
 
         super.init(frame: .zero)
+
+        isUserInteractionEnabled = hud.blocksUserInteraction
         translatesAutoresizingMaskIntoConstraints = false
 
         setUpSubviews()
         setUpConstraints()
         setUpStackViewArrangedSubviews(for: hud)
+
         hud.view = self
     }
 

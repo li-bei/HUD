@@ -7,6 +7,8 @@ protocol HUDProtocol: AnyObject {
 
     var blurEffectStyle: UIBlurEffect.Style { get }
 
+    var blocksUserInteraction: Bool { get }
+
     var view: UIView? { get set }
 
     func makeHUDView() -> UIView
