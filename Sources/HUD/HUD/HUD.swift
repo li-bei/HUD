@@ -9,9 +9,12 @@ public final class HUD {
 
     weak var view: UIView?
 
-    public init(image: UIImage? = nil, title: String? = nil, message: String? = nil) {
+    public var blurEffectStyle: UIBlurEffect.Style?
+
+    public init(image: UIImage? = nil, title: String? = nil, message: String? = nil, blurEffectStyle: UIBlurEffect.Style? = nil) {
         self.image = image
         self.title = title
         self.message = message
+        self.blurEffectStyle = blurEffectStyle
     }
 }

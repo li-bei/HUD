@@ -14,7 +14,7 @@ class View: UIView {
 // MARK: -
 
 class _HUDView: View {
-    private lazy var blurEffect = UIBlurEffect(style: .systemThinMaterial)
+    private let blurEffect: UIBlurEffect
 
     private lazy var blurEffectView: UIVisualEffectView = {
         let visualEffectView = UIVisualEffectView(effect: blurEffect)
@@ -43,8 +43,11 @@ class _HUDView: View {
 
     public init(hud: HUDProtocol) {
         assert(hud.view == nil)
+        blurEffect = UIBlurEffect(style: hud.blurEffectStyle ?? .systemThinMaterial)
+
         super.init(frame: .zero)
         translatesAutoresizingMaskIntoConstraints = false
+
         setUpSubviews()
         setUpConstraints()
         setUpStackViewArrangedSubviews(for: hud)
