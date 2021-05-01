@@ -43,7 +43,7 @@ class _HUDView: View {
 
     public init(hud: HUDProtocol) {
         assert(hud.view == nil)
-        blurEffect = UIBlurEffect(style: hud.style ?? .systemThinMaterial)
+        blurEffect = UIBlurEffect(style: hud.blurEffectStyle ?? .systemThinMaterial)
 
         super.init(frame: .zero)
         translatesAutoresizingMaskIntoConstraints = false
